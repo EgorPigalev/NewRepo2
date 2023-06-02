@@ -1,0 +1,84 @@
+﻿<Page x:Class="Rebalka.ListProducts"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rebalka"
+      mc:Ignorable="d" Style="{StaticResource PageStyle}"
+      d:DesignHeight="650" d:DesignWidth="1200"
+      Title="ListProducts">
+    <Page.Resources>
+        <BitmapImage x:Key="DefaultImage" UriSource="../resources/picture.png"/>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock x:Name="TBCountField" HorizontalAlignment="Left"/>
+            <TextBlock x:Name="TBUser" HorizontalAlignment="Right"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0" VerticalAlignment="Center">
+                <TextBlock Text="Поиск: " HorizontalAlignment="Center"/>
+                <TextBox Name="TBSearch" Margin="5" TextChanged="TBSearch_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Center">
+                <TextBlock Text="Сортировка: " HorizontalAlignment="Center"/>
+                <ComboBox Name="CBSort" Margin="5" SelectionChanged="CBSort_SelectionChanged">
+                    <ComboBoxItem Content="Без сортировки"/>
+                    <ComboBoxItem Content="По возрастанию стоимости"/>
+                    <ComboBoxItem Content="По убыванию стоимости"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="2" VerticalAlignment="Center">
+                <TextBlock Text="Фильтрация: " HorizontalAlignment="Center"/>
+                <ComboBox Name="CBFilt" Margin="5" SelectionChanged="CBSort_SelectionChanged"/>
+            </StackPanel>
+        </Grid>
+        <ListView Name="LVProducts" Grid.Row="2" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="#FF76E383" BorderThickness="4" CornerRadius="10" Background="{Binding BackgroundColor}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="200"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImageAbsolute, TargetNullValue={StaticResource DefaultImage}}" Width="180" HorizontalAlignment="Center"/>
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Text="{Binding ProductName}" TextWrapping="Wrap" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding ProductName}" TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding Manufacturers.ProductManufacturer, StringFormat={}Производитель: {0}}"/>
+                                <TextBlock Text="{Binding ProductCost, StringFormat={}Цена: {0}}"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Name="BtnDelete" Uid="{Binding ProductID}" Style="{StaticResource ButtonStyle}" Content="Удалить" Click="BtnDelete_Click" Loaded="BtnDelete_Loaded"/>
+                                    <Button Name="BtnUpdate" Uid="{Binding ProductID}" Style="{StaticResource ButtonStyle}" Content="Изменить" Click="BtnUpdate_Click" Loaded="BtnUpdate_Loaded"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <TextBlock Text="{Binding HaveInSclad}" Grid.Column="2" TextWrapping="Wrap"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid Grid.Row="3">
+            <Button Name="BtnBack" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Left" Content="Назад" VerticalAlignment="Center" Click="BtnBack_Click"/>
+            <Button Name="BtnAdd" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center" Content="Добавить" VerticalAlignment="Center" Click="BtnAdd_Click"/>
+        </Grid>
+    </Grid>
+</Page>

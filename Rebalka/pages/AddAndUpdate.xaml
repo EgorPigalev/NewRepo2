@@ -1,0 +1,69 @@
+﻿<Page x:Class="Rebalka.AddAndUpdate"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rebalka"
+      mc:Ignorable="d" Style="{StaticResource PageStyle}"
+      d:DesignHeight="650" d:DesignWidth="1200"
+      Title="AddAndUpdate">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="TBUser" Grid.Row="0" HorizontalAlignment="Right"/>
+        <TextBlock x:Name="TBHeader" HorizontalAlignment="Center" FontSize="32" Grid.Row="1"/>
+        <Grid Grid.Row="2">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Наименование: "/>
+                            <TextBox Name="TBName" Width="300"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Name="SPID" Visibility="Collapsed" Margin="10, 0, 0, 0">
+                            <TextBlock Text="ID товара: "/>
+                            <TextBlock Name="TBID"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Категория: "/>
+                        <ComboBox Name="CBCategoria" Width="300"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Кол-во на складе: "/>
+                        <TextBox Name="TBCountInSclad" Width="300" PreviewTextInput="TBCountInSclad_PreviewTextInput"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Ед. измерения: "/>
+                        <ComboBox Name="CBUnit" Width="300"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Поставщик: "/>
+                        <ComboBox Name="CBSuplier" Width="300"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Стоимость: "/>
+                        <TextBox Name="TBCost" Width="300" PreviewTextInput="TBCost_PreviewTextInput"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Описание: "/>
+                        <TextBox Name="TBDescription" Width="500" Height="100" TextWrapping="Wrap" AcceptsReturn="True"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <Image Name="IMPhoto" Height="150"/>
+                        <Button Name="BtnDeletePhoto" Style="{StaticResource ButtonStyle}" Content="Удалить" VerticalAlignment="Center" Click="BtnDeletePhoto_Click"/>
+                        <Button Name="BtnUpdPhoto" Style="{StaticResource ButtonStyle}" Content="Добавить" VerticalAlignment="Center" Click="BtnUpdPhoto_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Button Name="BtnBack" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Left" Content="Назад" VerticalAlignment="Center" Click="BtnBack_Click"/>
+            <Button Name="BtnAddAndUpdate" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BtnAddAndUpdate_Click"/>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a54a941f75f84aa3a6feb2a4969740dd" Name="Diagram1">
+        <EntityTypeShape EntityType="Test_P3Model.Categorys" Width="1.5" PointX="0.75" PointY="8.125" />
+        <EntityTypeShape EntityType="Test_P3Model.Manufacturers" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="Test_P3Model.Order" Width="1.5" PointX="3" PointY="15.375" />
+        <EntityTypeShape EntityType="Test_P3Model.OrderPickupPoints" Width="1.5" PointX="0.75" PointY="23.125" />
+        <EntityTypeShape EntityType="Test_P3Model.OrderProduct" Width="1.5" PointX="5.25" PointY="2.25" />
+        <EntityTypeShape EntityType="Test_P3Model.OrderStatus" Width="1.5" PointX="0.75" PointY="13.25" />
+        <EntityTypeShape EntityType="Test_P3Model.Product" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="Test_P3Model.Role" Width="1.5" PointX="1.5" PointY="20.25" />
+        <EntityTypeShape EntityType="Test_P3Model.Supliers" Width="1.5" PointX="0.75" PointY="2.625" />
+        <EntityTypeShape EntityType="Test_P3Model.Units" Width="1.5" PointX="0.75" PointY="10.375" />
+        <EntityTypeShape EntityType="Test_P3Model.User" Width="1.5" PointX="0.75" PointY="15.625" />
+        <AssociationConnector Association="Test_P3Model.FK_Product_Categorys" />
+        <AssociationConnector Association="Test_P3Model.FK_Product_Manufacturers" />
+        <AssociationConnector Association="Test_P3Model.FK__OrderProd__Order__403A8C7D" />
+        <AssociationConnector Association="Test_P3Model.FK_Order_OrderPickupPoints" />
+        <AssociationConnector Association="Test_P3Model.FK_Order_OrderStatus" />
+        <AssociationConnector Association="Test_P3Model.FK_Order_User" />
+        <AssociationConnector Association="Test_P3Model.FK_OrderProduct_Product" />
+        <AssociationConnector Association="Test_P3Model.FK_Product_Supliers" />
+        <AssociationConnector Association="Test_P3Model.FK_Product_Units" />
+        <AssociationConnector Association="Test_P3Model.FK__User__UserRole__398D8EEE" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

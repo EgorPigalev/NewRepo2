@@ -1,0 +1,23 @@
+﻿<Application x:Class="Rebalka.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Rebalka"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style x:Key="PageStyle" TargetType="Page">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        </Style>
+        <Style x:Key="WindowsStyle" TargetType="Window">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#FF76E383"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+    </Application.Resources>
+</Application>
